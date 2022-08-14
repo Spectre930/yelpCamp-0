@@ -131,10 +131,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    if(!['/login','/'].includes(req.originalUrl)) {
-        req.session.returnTo = req.originalUrl
-
-    }
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -162,10 +158,9 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-
-const 
-app.listen(, () => {
-    console.log('Serving on port 3000')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 })
 
 

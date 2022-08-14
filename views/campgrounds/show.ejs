@@ -69,7 +69,7 @@
                 </style>
 
 
-                <div id="map"></div>
+                <div id="map">
                 <script>
                     mapboxgl.accessToken = 'pk.eyJ1Ijoic3BlY3RyZS0xMDgiLCJhIjoiY2w2OGZna3BzMG5pdjNybzk0eGthZmdocCJ9.tWMy67rYd6P2P6B8QnlMdA';
                     const map = new mapboxgl.Map({
@@ -94,6 +94,7 @@
                         )
                         .addTo(map)
                 </script>
+                </div>
 
             </div>
             <% if(currentUser){ %>
@@ -156,7 +157,7 @@
 
     <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-        const campground = '<%= JSON.stringify(campground) %>';
+        const campground = '<%-JSON.stringify(campground) %>';
     </script>
     
 
